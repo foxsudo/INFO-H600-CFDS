@@ -26,7 +26,7 @@ Chaque terme décrit le précédent :
 print(the_sequence(8))
 ```
 
-### Sortie attendue
+**Sortie attendue**
 ```css
 ['1', '11', '21', '1211', '111221', '312211', '13112221', '1113213211']
 ```
@@ -47,7 +47,7 @@ Un plateau est valide si :
 print(is_valid_sudoku(board))
 ```
 
-### Sortie attendue
+**Sortie attendue**
 ```graphql
 True
 ```
@@ -80,8 +80,7 @@ Dans le terminal, exécuter simplement :
 ```bash
 python asg1.py
 ```
-
-### Sortie attendue
+**Sortie attendue**
 ```python
 ['1', '11', '21', '1211', '111221', '312211', '13112221', '1113213211']
 
