@@ -22,7 +22,7 @@ def the_sequence(n):
         next_term = ""
         count = 1
         
-        # Parcours du terme actuel pour le "lire"
+        # Browse the current term to “read” it
         for i in range(1, len(prev)):
             if prev[i] == prev[i-1]:
                 count += 1
