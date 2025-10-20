@@ -108,5 +108,7 @@ False
 2. SILUE Kolotcholoma
 
 **Cours :** INFO-H600 – Computing Foundations of Data Sciences
+
 **Université :** UNIVERSITE LIBRE DE BRUXELLE (ULB)
+
 **Langage :** Python 3.10+
