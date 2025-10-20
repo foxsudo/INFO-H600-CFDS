@@ -131,7 +131,7 @@ def is_valid_tictactoe(board):
     
     return True
 
-# Calling the function for exercise 2
+# Calling the function for exercise 3
 print(is_valid_tictactoe(['XXX', ' X ', '   ']))  # ==> False
 print(is_valid_tictactoe(['XOX', ' O ', '   ']))  # ==> True
 print(is_valid_tictactoe(['O  ', '   ', '   ']))  # ==> False
