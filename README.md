@@ -103,8 +103,8 @@ False
 ### Auteurs
 
 - **Noms :** 
-1. Charly MASOBELE
-2. SILUE Kolotcholoma
+1. [Charly MASOBELE](https://github.com/foxsudo/)
+2. [SILUE Kolotcholoma](https://github.com/Ange2ks/)
 
 - **Cours :** INFO-H600 – Computing Foundations of Data Sciences
 - **Université :** UNIVERSITE LIBRE DE BRUXELLE (ULB)
