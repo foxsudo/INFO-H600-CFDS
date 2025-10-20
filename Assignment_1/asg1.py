@@ -86,9 +86,9 @@ board = [
 # Calling the function for exercise 2
 print(is_valid_sudoku(board))  # ==> True
 
-##################################
-# Exercices 3 : Tic-Tac-Toe game #
-##################################
+##############################################
+# Exercices 3 : Tic-Tac-Toe Validity Checker #
+##############################################
 
 def is_valid_tictactoe(board):
     # Count the X's and O's
