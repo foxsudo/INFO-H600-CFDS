@@ -4,11 +4,11 @@
                   # Assignment 1 : INFO-H600 Computing Foundations of Data Sciences #
                   ###################################################################
 
-#######################################################################################################
-# Exercices 1 :                                                                                       #
-#Create a function "the_sequence" that accepts one integer and returns a list of strings representing # 
-#the following sequence: 1, 11, 21, 1211, 111221, 312211, 13112221, . . . .                           #
-#######################################################################################################
+########################################################################################################
+# Exercices 1 :                                                                                        #
+# Create a function "the_sequence" that accepts one integer and returns a list of strings representing # 
+# the following sequence: 1, 11, 21, 1211, 111221, 312211, 13112221, . . . .                           #
+########################################################################################################
 
 def the_sequence(n):
     # Check for n <= 0
