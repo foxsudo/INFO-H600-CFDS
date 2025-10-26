@@ -1,6 +1,7 @@
 
 
-                  ###################################################################
+                  
+###################################################################
                   # Assignment 1 : INFO-H600 Computing Foundations of Data Sciences #
                   ###################################################################
 
@@ -9,43 +10,31 @@
 ######################################################
 
 def the_sequence(n):
-    # Base case: if n is 0 or negative, return an empty list
+    # Check for n <= 0
     if n <= 0:
         return []
     
-    # If n == 1, return the first term of the sequence
-    if n == 1:
-        return ['1']
+    # Initialization of the sequence with the first term
+    seq = ['1']
     
-    # Recursive call: generate the sequence up to (n - 1)
-    seq = the_sequence(n - 1)
+    # Generation of the following terms
+    for _ in range(1, n):
+        prev = seq[-1]  # last term
+        next_term = ""
+        count = 1
+        
+        # Browse the current term to “read” it
+        for i in range(1, len(prev)):
+            if prev[i] == prev[i-1]:
+                count += 1
+            else:
+                next_term += str(count) + prev[i-1]
+                count = 1
+        # Add last group
+        next_term += str(count) + prev[-1]
+        
+        seq.append(next_term)
     
-    # Get the last (most recent) term in the sequence
-    prev = seq[-1]
-    
-    # Initialize variables for building the next term
-    next_term = ""  # will store the next string in the sequence
-    count = 1       # counts consecutive identical digits
-    
-    # Loop through the previous term starting from the 2nd character
-    for i in range(1, len(prev)):
-        if prev[i] == prev[i-1]:
-            # If the current digit is the same as the previous one, increase the count
-            count += 1
-        else:
-            # If the digit changes:
-            # append "count + previous_digit" to next_term
-            next_term += str(count) + prev[i-1]
-            # reset the counter for the new digit
-            count = 1
-    
-    # After the loop ends, append the last counted group
-    next_term += str(count) + prev[-1]
-    
-    # Add the newly formed term to the sequence
-    seq.append(next_term)
-    
-    # Return the complete sequence up to n terms
     return seq
 
 # Calling the function for exercise 1
@@ -57,33 +46,30 @@ print(the_sequence(8))
 ################################################
 
 def is_valid_sudoku(board):
-    # Create 9 sets for rows, columns, and 3x3 boxes
-    # Each set will store the digits already seen in that row/column/box
-    rows = [set() for _ in range(9)]
-    cols = [set() for _ in range(9)]
-    boxes = [set() for _ in range(9)]
-    
-    # Loop through every cell in the 9x9 Sudoku grid
-    for i in range(9):          # iterate over rows
-        for j in range(9):      # iterate over columns
-            val = board[i][j]   # current cell value
-            
-            # Skip empty cells (represented by '.')
-            if val != '.':
-                # Compute which 3x3 sub-box this cell belongs to
-                # Boxes are indexed from 0 to 8:
-                box_idx = (i // 3) * 3 + (j // 3)
-                
-                # If the number is already in the same row, column, or box then the board is invalid Sudoku
-                if val in rows[i] or val in cols[j] or val in boxes[box_idx]:
-                    return False
-                
-                # Otherwise, add the number to the respective sets
-                rows[i].add(val)
-                cols[j].add(val)
-                boxes[box_idx].add(val)
-    
-    # If no conflicts were found, the Sudoku board is valid
+    # Checking the lines
+    for row in board:
+        nums = [c for c in row if c != '.']
+        if len(nums) != len(set(nums)):
+            return False
+
+    # Checking the columns
+    for col in range(9):
+        nums = [board[row][col] for row in range(9) if board[row][col] != '.']
+        if len(nums) != len(set(nums)):
+            return False
+
+    # Checking 3x3 subgrids
+    for box_row in range(0, 9, 3):
+        for box_col in range(0, 9, 3):
+            nums = []
+            for i in range(3):
+                for j in range(3):
+                    val = board[box_row + i][box_col + j]
+                    if val != '.':
+                        nums.append(val)
+            if len(nums) != len(set(nums)):
+                return False
+
     return True
 
 # Exemple of Board
@@ -153,4 +139,3 @@ print(is_valid_tictactoe(['XOX', ' O ', '   ']))  # ==> True
 print(is_valid_tictactoe(['O  ', '   ', '   ']))  # ==> False
 print(is_valid_tictactoe(['X  ', '   ', '   ']))  # ==> True
 print(is_valid_tictactoe(['XOX', ' X ', '   ']))  # ==> False
-
